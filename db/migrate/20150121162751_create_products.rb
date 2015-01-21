@@ -4,9 +4,10 @@ class CreateProducts < ActiveRecord::Migration
 
     	t.string	:name
     	t.integer	:price_in_pence
-    	t.text
+    	
 
-      t.timestamps null: false
+    	t.timestamps null: false
+    
     end
   end
 end
