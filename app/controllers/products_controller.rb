@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	def index
+		@products = "something"
 	end
 
 	def show
@@ -28,5 +29,5 @@ class ProductsController < ApplicationController
 	def find_product
 		#query to read a record from the DB
 	end
-	
+
 end
