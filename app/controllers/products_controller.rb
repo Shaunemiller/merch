@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
+	before_filter :find_product, {only:
+										[:show, :edit, :update, :destroy]
+
+								}
+
 	def index
 		@products = Product.all
 	end
 
 	def show
-		@product = Product.find(params["id"])
+		
 	end
 
 	def new
@@ -29,6 +34,7 @@ class ProductsController < ApplicationController
 
 	def find_product
 		#query to read a record from the DB
+		@product = Product.find(params["id"])
 	end
 
 end
