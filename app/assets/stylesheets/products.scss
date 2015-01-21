@@ -1,3 +1,14 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// style html by the class name
+.single-products{
+	background-color: #3d4f5c;
+	padding: 50px;
+	text-align: center;
+
+	h2 {
+		color: #fff;
+	}
+}

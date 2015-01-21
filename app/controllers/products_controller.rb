@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-	before_filter :find_product, {only:
-										[:show, :edit, :update, :destroy]
+	before_action :find_product, {only:
+										[:show, :edit, :update, :destroy	]
 
 								}
 
