@@ -1,11 +1,6 @@
 <h2>Submit a new product below</h2>
 
-<%= simple_form_for @product do |f| %>
-	
-	<%= f.input :name %>
-	<%= f.input :description %>
-	<%= f.input :price_in_pence %>
+<%= render "form" %>
 
-	<%= f.button :submit %>
 
 <% end %>
