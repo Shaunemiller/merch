@@ -49,7 +49,7 @@ group :development, :test do
   end
 
   group :production do 
-# specify gems for production 
+# specify gems for Heroku
   end
 
 end
