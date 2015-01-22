@@ -44,6 +44,12 @@ group :development, :test do
 
   gem 'simple_form'
 
+  gem 'steer', github: 'tmcdb/steer-rb'
+  gem 'bourbon'
+  gem 'neat'
+  gem 'paperclip', "~> 4.2"
+
+
   group :development do 
   	gem 'table_print'
   end
@@ -51,6 +57,8 @@ group :development, :test do
   group :production do 
 # specify gems for Heroku
   end
+
+  
 
 end
 

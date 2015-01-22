@@ -4,8 +4,7 @@
 <p> <%= @product.name %> </h2>
 	
 <p><%= @product.description %> </p>
-<small>  <%= @product.price_in_pence %> p</small>
-	
+<small> £<%= @product.price_in_pence.to_f/100%>   </small>
 
 
 

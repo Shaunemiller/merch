@@ -1,0 +1,236 @@
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$serif: "Georgia", serif
+$sans: "Helvetica Neue", sans-serif
+$main: #5FBB97//#258EA6// #FF8784
+$black: #3F3F3F
+$white: #fff
+$blue: #258EA5
+$grey: #ebebeb
+$ltGrey: #F8F8FA
+// Mobiles
+$smallMobilesOnly: new-breakpoint(max-width 320px)
+$smallMobilesAndUp: new-breakpoint(min-width 320px)
+$mediumMobilesOnly: new-breakpoint(max-width 375px)
+$mediumMobilesAndUp: new-breakpoint(min-width 375px)
+// Tablets
+$smallTabletsAndUp: new-breakpoint(min-width 533px)
+$ipadAndUp: new-breakpoint(min-width 768px)
+$ipadOnly: new-breakpoint(min-width 768px max-width 768px)
+$largeTabletsAndUp: new-breakpoint(min-width 800px)
+// Desktop
+$smallDesktopsAndUp: new-breakpoint(min-width 1024px)
+$mediumDesktopsAndUp: new-breakpoint(min-width 1280px)
+$largeDesktopsAndUp: new-breakpoint(min-width 1680px)
+$extraLargeDesktopsAndUp: new-breakpoint(min-width 1920px)
+
+=center($width)
+  +span-columns($width)
+  margin-left: auto
+  margin-right: auto
+  float: none
+  &:last-child
+    margin-right: auto
+
+body, html
+  min-height: 100%
+body
+  +media($smallMobilesAndUp)
+    max-width: 100%
+    margin: 0 10px
+  +media($mediumMobilesAndUp)
+    margin: 0 15px
+  +media($ipadAndUp)
+    max-width: 720px
+    margin: auto
+  color: $black
+  font-family: $sans
+
+.border
+  width: 100% 
+  border-top: 5px solid $main
+  position: fixed
+  top: 0
+  left: 0
+
+=typography($line-height)
+  font-size: $line-height
+  line-height: $line-height
+  margin-bottom: $line-height
+
+h1, h2
+  +typography(21px)
+  font-weight: 500
+  color: $main
+h3
+  +typography(21px)
+h4, h5
+  +typography(13px)
+  text-transform: uppercase
+p
+  +typography(13px)
+header
+  +media($smallMobilesAndUp)
+    margin-bottom: 10px
+    text-align: center
+    height: 60px 
+    h1
+      display: inline
+      margin: 0
+      line-height: 60px 
+    .user-actions
+      line-height: 60px 
+      float: right
+      display: inline
+      a
+        padding: 10px
+  +media($mediumMobilesAndUp)
+    margin-bottom: 20px
+  +media($ipadAndUp)
+    margin-top: 40px
+    text-align: left
+  border-bottom: 1px solid $grey
+a
+  font-family: "Inconsolata"
+  text-decoration: none
+  color: $main
+  &:hover
+    color: shade($main, 20%)
+a
+  h1, h2, h3, h4
+    font-family: $sans
+
+.product
+  +media($smallMobilesAndUp)
+    float: left
+    +span-columns(12)
+    margin-bottom: 10px
+    padding-bottom: 10px
+    border-bottom: 1px solid $ltGrey
+  +media($smallTabletsAndUp)
+    height: 260px
+    +span-columns(3)
+    border: none
+    &:nth-child(4n+4)
+      +omega()
+  +media($ipadAndUp)
+    +span-columns(3)
+  +clearfix
+
+  .info
+    text-align: center
+    font-size: 10px
+    +media($smallMobilesAndUp)
+      margin: 20px
+    small
+      float: left
+      position: relative
+      left: -30px
+      top: -70px
+      cursor: pointer
+      background: $white
+      +transition(none)
+      &:hover
+        +transition(all 200ms linear) 
+        background: tint($main, 70%)
+
+      border: solid 3px $main
+      border-radius: 50%
+      padding: 15px 10px
+    h4
+      font-weight: normal
+
+  .image
+    background-color: $ltGrey 
+    padding: 15px 0
+    min-height: 130px
+    +media($ipadAndUp)
+      margin-right: 15px
+    a
+      +clearfix()
+      float: none
+      &:hover > svg
+        fill: $main
+
+  .action
+    border: 3px 
+  
+  svg
+    // fill: tint($main, 40%)
+    fill: #dbdbdb
+    display: block
+    margin: 20px auto
+    height: 50px
+    width: 50px
+
+img
+  max-width: 100%
+  display: block
+  margin: auto
+
+form:not(#new_order)
+  margin-top: 50px
+  margin-bottom: 50px
+  div.input
+    +clearfix()
+    margin: auto
+  +clearfix()
+  input, select
+    +media($smallMobilesAndUp)
+      +span-columns(12)
+    +media($ipadAndUp)
+      +span-columns(6)
+    margin: 10px 0
+    padding: 5px
+  label
+    +media($smallMobilesAndUp)
+      +span-columns(12)
+      text-align: center
+    +media($ipadAndUp)
+      +span-columns(4)
+    margin: 10px 20px 10px 0
+    text-align: right
+  span
+    +span-columns(2)
+    margin: 15px 0 0 10px 
+    font-weight: 500
+  input
+    &.button, &[type="submit"], &[type="button"]
+      +media($smallMobilesAndUp)
+        +span-columns(12)
+      +media($ipadAndUp)
+        +span-columns(6)
+        +shift(4)
+      background: $main
+      border: none
+      color: tint($main, 90%)
+      border-radius: 4px
+      font-size: 18px
+      padding: 10px
+      float: none
+      cursor: pointer
+#new_order
+  +span-columns(8)
+  .input
+    textarea 
+      margin-left: 40px 
+      height: 50px
+    label
+      margin-bottom: 30px
+
+.mug_logo
+  height: 35px
+  margin: 10px
+
+div.success, div.error
+  p
+    margin: 0
+  background-color: tint($main, 60%)
+  padding: 10px
+  margin-bottom: 20px
+  border-radius: 3px
+  font-size: 18px
+  font-weight: 800
+div.error
+  background-color: shade($main, 40%)
+  color: #fff
+

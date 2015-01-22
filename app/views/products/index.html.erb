@@ -4,18 +4,23 @@
 
 <% @products.each do |product| %>
 
-<div class="individual">
-	<h2> <%= product.name %> </h2>
+	<div class="product">
 
-	<p> <%= product.description %> </p>
+		<%= link_to product_path(product) do %>
+			<h3><%= product.name %> </h3>
+		<% end %>
 
-	<small> <%= product.price_in_pence %>  </small>
+			<div class="info">
+			<p> <%= product.description.truncate(75, separator: /\s/) %> </p>
 
-	<div class="Actions">
-		<!-- if logged in AND user is owner -->
-	<%= link_to "Edit", edit_product_path(product) %>
-	<%= link_to "Delete", product_path(product), method: :delete %>
-		<!-- end -->
+			<small> <%= number_to_currency(product.price_in_pence.to_f / 100, unit:"£") %>  </small>
+			</div>
+
+		<div class="Actions">
+			<!-- if logged in AND user is owner -->
+		<%= link_to "Edit", edit_product_path(product) %>
+		<%= link_to "Delete", product_path(product), method: :delete %>
+			<!-- end -->
 	</div>
 
 </div>
