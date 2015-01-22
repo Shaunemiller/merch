@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   
 
 
@@ -16,4 +16,9 @@ class UserController < ApplicationController
 
   def destroy
   end
+
+  def show
+  	
+  end
+
 end
