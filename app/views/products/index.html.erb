@@ -1,3 +1,25 @@
 <h1>Products</h1>
 
-<%= @products.inspect %>
+<section class="products">
+
+<% @products.each do |product| %>
+
+<div class="individual">
+	<h2> <%= product.name %> </h2>
+
+	<p> <%= product.description %> </p>
+
+	<small> <%= product.price_in_pence %>  </small>
+
+	<div class="Actions">
+		<!-- if logged in AND user is owner -->
+	<%= link_to "Edit", edit_product_path(product) %>
+	<%= link_to "Delete", product_path(product), method: :delete %>
+		<!-- end -->
+	</div>
+
+</div>
+
+<% end %>
+
+</section>
