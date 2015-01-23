@@ -16,35 +16,36 @@ class ProductsController < ApplicationController
 
 	def new
 		# only logged in users
-		if current_user.present?
-			@product = Product.new
-		else 
-			flash[:error] = "You need to be logged in to do that"
-			redirect_to new_session_path
-		end 
-
+		require_user
+		@product = Product.new
 	end
 
 	def create
+		# only for logged in users
+		require_user
 		@product = Product.new(product_params)
-		if @product.save
-		flash[:success] = "'#{@product.name}' was added to the shop."
-		redirect_to product_path(@product)
 
-		else
-			flash[:error] = "Oops, something went wrong, check the form and try again."
-			render :new
-		end
+			if @product.save
+				flash[:success] = "'#{@product.name}' was added to the shop."
+				redirect_to product_path(@product)
+
+			else
+				flash[:error] = "Oops, something went wrong, check the form and try again."
+				render :new
+			end
+		
+
 
 	end
 
 	def edit
 		#only logged in Users and User is owner
-
+		require_user
 	end
 
 	def update
 		#only logged in Users and User is owner
+		require_user
 		if @product.update(product_params
 			)
 			flash[:success] = "'#{@product.name}' was updated successfully."
