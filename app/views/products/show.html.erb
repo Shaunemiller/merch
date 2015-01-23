@@ -1,17 +1,18 @@
-<h2> The Product </h2>
+<section class="product">
 
-
-<p> <%= @product.name %> </h2>
+<h2> <%= @product.name %> </h2>
 	
-<p><%= @product.description %> </p>
-<small> £<%= @product.price_in_pence.to_f/100%>   </small>
-
-<div class="image">
-			
 <%= image_tag @product.image.url(:medium) %>
-		
-</div>
+<p><%= @product.description %> </p>
+<small> £<%= @product.price_in_pence/100%>   </small>
 
+<div> <%=link_to "Buy",new_product_order_path(@product), data: {turbolinks_track: false} %> </div>
+
+
+<small> For more information <%= mail_to @product.user.email %> </small>
+
+
+</section>
 
 
 
