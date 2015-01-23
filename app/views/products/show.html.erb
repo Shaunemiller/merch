@@ -6,6 +6,13 @@
 <p><%= @product.description %> </p>
 <small> £<%= @product.price_in_pence.to_f/100%>   </small>
 
+<div class="image">
+			
+<%= image_tag @product.image.url(:medium) %>
+		
+</div>
+
+
 
 
 

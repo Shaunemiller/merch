@@ -29,10 +29,19 @@ class SessionsController < ApplicationController
   	flash[:error] = "Sorry it didn't work!"
  	
  	 render :new
+  
   end
+  
 
  end
+          
 
+          def destroy
+          reset_session
+          flash[:success] = "See you soon!"
+          redirect_to root_path
+
+          end
 
 
 

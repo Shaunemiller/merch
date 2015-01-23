@@ -12,14 +12,23 @@
 
 		<header>
 			<nav> 
-				<%= link_to "Home", root_path %>
+				<%= link_to root_path do %>
+					<h1> Home </h1>
+				<% end %>
 				<!--only show the "add" link to logged in users -->
 
 				<!-- if logged in ...-->
+
+				<div class="user-actions">
+				<% if current_user? %>
+				<%= link_to current_user.email, user_path(current_user) %>
 				<%= link_to "Add a product", new_product_path %>
-				<!-- else -->
+				<%= link_to "Log Out", session_path, method: :delete %>
+				<% else %>
+
 					<%= link_to "Log in", new_session_path %>
-				<!-- end -->
+				<% end %>
+				</div>
 
 			</nav>
 		</header>
