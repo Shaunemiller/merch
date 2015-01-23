@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     if @order.save 
 
       	#Create a charge via Stripe.
-        Stripe.api_key = "sk_test_lACF0Ogr7cGM8nLKwyWkC28i"
+        Stripe.api_key = Rails.application.secrets.stripe_private_key
         Stripe::Charge.create(
         :amount => @order.product.price_in_pence,
         :currency => "gbp",
